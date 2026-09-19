@@ -3,6 +3,8 @@ import express from 'express';
 const app = express();
 const PORT = 3000;
 
+app.set('view engine', 'ejs');
+
 const projects = [
   { name: 'Weather app', tag: 'javascript' },
   { name: 'Portfolio site', tag: 'express' },
@@ -14,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.send('This page is about me.');
+  res.render('about', { title: 'About' });
 });
 
 app.get('/projects', (req, res) => {
